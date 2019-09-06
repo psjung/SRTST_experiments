@@ -1,0 +1,4 @@
+File,LOC,SLOC-P,SLOC-L,MVG,BLOC,C&SLOC,CLOC,CWORD,HCLOC,HCWORD
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\publishing\censorship\LiberalTransactionCensor.java,15,6,4,0,6,0,3,40,3,40
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\publishing\censorship\StrictTransactionCensor.java,60,42,34,2,13,1,5,107,4,43
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\publishing\censorship\TransactionCensor.java,16,5,4,0,6,0,5,46,3,40

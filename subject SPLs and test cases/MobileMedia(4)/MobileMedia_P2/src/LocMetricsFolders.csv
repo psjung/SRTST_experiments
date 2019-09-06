@@ -1,0 +1,16 @@
+Folder,Files,LOC,SLOC-P,SLOC-L,MVG,BLOC,C&SLOC,CLOC,CWORD,HCLOC,HCWORD
+Total,51,5744,3196,2581,322,910,27,1638,6903,132,377
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src,51,5744,3196,2581,322,910,27,1638,6903,132,377
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs,51,5744,3196,2581,322,910,27,1638,6903,132,377
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia,51,5744,3196,2581,322,910,27,1638,6903,132,377
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core,37,4964,2736,2212,289,747,16,1481,6132,119,343
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\comms,1,30,9,8,0,8,0,13,85,4,6
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\threads,1,26,10,7,0,4,0,12,58,0,0
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\ui,32,4592,2547,2060,270,686,16,1359,5505,109,321
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\ui\controller,12,2082,1235,1009,184,270,4,577,2428,67,180
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\ui\datamodel,9,1288,662,508,48,195,11,431,1767,23,73
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\ui\screens,10,1005,564,462,38,185,1,256,920,19,68
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\core\util,3,316,170,137,19,49,0,97,484,6,16
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\lib,8,156,107,71,5,49,0,0,0,0,0
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\lib\exceptions,8,156,107,71,5,49,0,0,0,0,0
+C:\Users\soo\Downloads\SPL2go\Mobile_Media\MobileMedia08\src\lancs\mobilemedia\sms,6,624,353,298,28,114,11,157,771,13,34

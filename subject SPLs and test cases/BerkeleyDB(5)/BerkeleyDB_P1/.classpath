@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="evosuite-tests1"/>
+	<classpathentry kind="src" path="evosuite-tests2"/>
+	<classpathentry kind="src" path="evosuite-tests3"/>
+	<classpathentry kind="src" path="evosuite-tests4"/>
+	<classpathentry kind="src" path="evosuite-tests5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/BerkeleyDB-FH-Java_c.BerkeleyDB_P1/lib/coloride_1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/BerkeleyDB-FH-Java_c.BerkeleyDB_P1/bcel-6.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/eclipse/plugins/org.evosuite.plugins.eclipse.deps_1.0.2.201512261016/lib/evosuite.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,397 @@
+package com.sleepycat.je.log; 
+import java.io.IOException; 
+import java.nio.ByteBuffer; 
+import java.util.Iterator; 
+import java.util.LinkedList; 
+import com.sleepycat.je.DatabaseException; 
+import com.sleepycat.je.config.EnvironmentParams; 
+import com.sleepycat.je.dbi.DbConfigManager; 
+import com.sleepycat.je.dbi.EnvironmentImpl; 
+import de.ovgu.cide.jakutil.*; 
+import com.sleepycat.je.EnvironmentStats; 
+import com.sleepycat.je.StatsConfig; 
+import com.sleepycat.je.latch.Latch; 
+import com.sleepycat.je.latch.LatchSupport; 
+ 
+class  LogBufferPool {
+	
+  private static final String DEBUG_NAME=LogBufferPool.class.getName();
+
+	
+  private EnvironmentImpl envImpl=null;
+
+	
+  private int logBufferSize;
+
+	
+  private LinkedList bufferPool;
+
+	
+  private LogBuffer currentWriteBuffer;
+
+	
+  private FileManager fileManager;
+
+	
+  private boolean runInMemory;
+
+	
+  LogBufferPool(  FileManager fileManager,  EnvironmentImpl envImpl) throws DatabaseException {
+    this.fileManager=fileManager;
+    this.envImpl=envImpl;
+    this.hook485(envImpl);
+    DbConfigManager configManager=envImpl.getConfigManager();
+    runInMemory=configManager.getBoolean(EnvironmentParams.LOG_MEMORY_ONLY);
+    reset(configManager);
+    currentWriteBuffer=(LogBuffer)bufferPool.getFirst();
+  }
+
+	
+  /** 
+ * Initialize the pool at construction time and when the cache is resized.
+ * This method is called after the memory budget has been calculated.
+ */
+   private void  reset__wrappee__base  (  DbConfigManager configManager) throws DatabaseException {
+    if (runInMemory && bufferPool != null) {
+      return;
+    }
+    int numBuffers=configManager.getInt(EnvironmentParams.NUM_LOG_BUFFERS);
+    long logBufferBudget=envImpl.getMemoryBudget().getLogBufferBudget();
+    int newBufferSize=(int)logBufferBudget / numBuffers;
+    LinkedList newPool=new LinkedList();
+    if (runInMemory) {
+      numBuffers=1;
+    }
+    for (int i=0; i < numBuffers; i++) {
+      newPool.add(new LogBuffer(newBufferSize,envImpl));
+    }
+    this.hook486();
+    bufferPool=newPool;
+    logBufferSize=newBufferSize;
+  }
+
+	
+  /** 
+ * Initialize the pool at construction time and when the cache is resized.
+ * This method is called after the memory budget has been calculated.
+ */
+  void reset(  DbConfigManager configManager) throws DatabaseException {
+    reset__wrappee__base(configManager);
+    bufferPoolLatch.release();
+  }
+
+	
+  /** 
+ * Get a log buffer for writing sizeNeeded bytes. If currentWriteBuffer is
+ * too small or too full, flush currentWriteBuffer and get a new one.
+ * Called within the log write latch.
+ * @return a buffer that can hold sizeNeeded bytes.
+ */
+  LogBuffer getWriteBuffer(  int sizeNeeded,  boolean flippedFile) throws IOException, DatabaseException {
+    if ((!currentWriteBuffer.hasRoom(sizeNeeded)) || flippedFile) {
+      writeBufferToFile(sizeNeeded);
+    }
+    if (flippedFile) {
+      if (!runInMemory) {
+        fileManager.syncLogEndAndFinishFile();
+      }
+    }
+    return currentWriteBuffer;
+  }
+
+	
+  /** 
+ * Write the contents of the currentWriteBuffer to disk.  Leave this buffer
+ * in memory to be available to would be readers.  Set up a new
+ * currentWriteBuffer. Assumes the log write latch is held.
+ * @param sizeNeeded is the size of the next object we need to write to
+ * the log. May be 0 if this is called on behalf of LogManager.flush().
+ */
+  void writeBufferToFile(  int sizeNeeded) throws IOException, DatabaseException {
+    int bufferSize=((logBufferSize > sizeNeeded) ? logBufferSize : sizeNeeded);
+    this.hook488();
+    LogBuffer latchedBuffer=currentWriteBuffer;
+    this.hook487(bufferSize,latchedBuffer);
+  }
+
+	
+  /** 
+ * A loggable object has been freshly marshalled into the write log buffer.
+ * 1. Update buffer so it knows what LSNs it contains.
+ * 2. If this object requires a flush, write this buffer out to the 
+ * backing file.
+ * Assumes log write latch is held.
+ */
+  void writeCompleted(  long lsn,  boolean flushRequired) throws DatabaseException, IOException {
+    currentWriteBuffer.registerLsn(lsn);
+    if (flushRequired) {
+      writeBufferToFile(0);
+    }
+  }
+
+	
+  /** 
+ * Find a buffer that holds this LSN.
+ * @return the buffer that contains this LSN, latched and ready to
+ * read, or return null.
+ */
+  LogBuffer getReadBuffer(  long lsn) throws DatabaseException {
+    LogBuffer foundBuffer=null;
+    foundBuffer=this.hook489(lsn,foundBuffer);
+    if (foundBuffer == null) {
+      return null;
+    }
+ else {
+      return foundBuffer;
+    }
+  }
+
+	
+   private void  hook485__wrappee__base  (  EnvironmentImpl envImpl) throws DatabaseException {
+  }
+
+	
+  protected void hook485(  EnvironmentImpl envImpl) throws DatabaseException {
+    bufferPoolLatch=LatchSupport.makeLatch(DEBUG_NAME + "_FullLatch",envImpl);
+    hook485__wrappee__base(envImpl);
+  }
+
+	
+   private void  hook486__wrappee__base  () throws DatabaseException {
+  }
+
+	
+  protected void hook486() throws DatabaseException {
+    bufferPoolLatch.acquire();
+    hook486__wrappee__base();
+  }
+
+	
+   private void  hook487__wrappee__base  (  int bufferSize,  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+    ByteBuffer currentByteBuffer=currentWriteBuffer.getDataBuffer();
+    int savePosition=currentByteBuffer.position();
+    int saveLimit=currentByteBuffer.limit();
+    currentByteBuffer.flip();
+    if (runInMemory) {
+      this.hook492(latchedBuffer);
+      latchedBuffer=null;
+      this.hook491();
+      currentWriteBuffer=new LogBuffer(bufferSize,envImpl);
+      bufferPool.add(currentWriteBuffer);
+      this.hook490();
+    }
+ else {
+      try {
+        fileManager.writeLogBuffer(currentWriteBuffer);
+        currentWriteBuffer.getDataBuffer().rewind();
+        this.hook494(latchedBuffer);
+        latchedBuffer=null;
+        LogBuffer nextToUse=null;
+        this.hook493(nextToUse);
+      }
+ catch (      DatabaseException DE) {
+        currentByteBuffer.position(savePosition);
+        currentByteBuffer.limit(saveLimit);
+        throw DE;
+      }
+    }
+  }
+
+	
+  protected void hook487(  int bufferSize,  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+    try {
+      hook487__wrappee__base(bufferSize,latchedBuffer);
+    }
+  finally {
+      if (latchedBuffer != null) {
+        latchedBuffer.release();
+      }
+    }
+  }
+
+	
+   private void  hook488__wrappee__base  () throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook488() throws IOException, DatabaseException {
+    currentWriteBuffer.latchForWrite();
+    hook488__wrappee__base();
+  }
+
+	
+   private LogBuffer  hook489__wrappee__base  (  long lsn,  LogBuffer foundBuffer) throws DatabaseException {
+    Iterator iter=bufferPool.iterator();
+    while (iter.hasNext()) {
+      LogBuffer l=(LogBuffer)iter.next();
+      if (l.containsLsn(lsn)) {
+        foundBuffer=l;
+        break;
+      }
+    }
+    if (foundBuffer == null && currentWriteBuffer.containsLsn(lsn)) {
+      foundBuffer=currentWriteBuffer;
+    }
+    if (foundBuffer == null) {
+      this.hook496();
+    }
+    return foundBuffer;
+  }
+
+	
+   private LogBuffer  hook489__wrappee__Statistics  (  long lsn,  LogBuffer foundBuffer) throws DatabaseException {
+    nNotResident++;
+    return hook489__wrappee__base(lsn,foundBuffer);
+  }
+
+	
+  protected LogBuffer hook489(  long lsn,  LogBuffer foundBuffer) throws DatabaseException {
+    bufferPoolLatch.acquire();
+    try {
+      foundBuffer=hook489__wrappee__Statistics(lsn,foundBuffer);
+    }
+  finally {
+      bufferPoolLatch.releaseIfOwner();
+    }
+    return foundBuffer;
+  }
+
+	
+   private void  hook490__wrappee__base  () throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook490() throws IOException, DatabaseException {
+    bufferPoolLatch.release();
+    hook490__wrappee__base();
+  }
+
+	
+   private void  hook491__wrappee__base  () throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook491() throws IOException, DatabaseException {
+    bufferPoolLatch.acquire();
+    hook491__wrappee__base();
+  }
+
+	
+   private void  hook492__wrappee__base  (  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook492(  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+    latchedBuffer.release();
+    hook492__wrappee__base(latchedBuffer);
+  }
+
+	
+   private void  hook493__wrappee__base  (  LogBuffer nextToUse) throws IOException, DatabaseException {
+    this.hook495();
+    Iterator iter=bufferPool.iterator();
+    nextToUse=(LogBuffer)iter.next();
+    boolean done=bufferPool.remove(nextToUse);
+    assert done;
+    nextToUse.reinit();
+    bufferPool.add(nextToUse);
+    currentWriteBuffer=nextToUse;
+  }
+
+	
+  protected void hook493(  LogBuffer nextToUse) throws IOException, DatabaseException {
+    try {
+      hook493__wrappee__base(nextToUse);
+    }
+  finally {
+      bufferPoolLatch.releaseIfOwner();
+    }
+  }
+
+	
+   private void  hook494__wrappee__base  (  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook494(  LogBuffer latchedBuffer) throws IOException, DatabaseException {
+    latchedBuffer.release();
+    hook494__wrappee__base(latchedBuffer);
+  }
+
+	
+   private void  hook495__wrappee__base  () throws IOException, DatabaseException {
+  }
+
+	
+  protected void hook495() throws IOException, DatabaseException {
+    bufferPoolLatch.acquire();
+    hook495__wrappee__base();
+  }
+
+	
+   private void  hook496__wrappee__base  () throws DatabaseException {
+  }
+
+	
+  protected void hook496() throws DatabaseException {
+    nCacheMiss++;
+    hook496__wrappee__base();
+  }
+
+	
+  private long nNotResident=0;
+
+	
+  private long nCacheMiss=0;
+
+	
+  void loadStats(  StatsConfig config,  EnvironmentStats stats) throws DatabaseException {
+    stats.setNCacheMiss(nCacheMiss);
+    stats.setNNotResident(nNotResident);
+    if (config.getClear()) {
+      nCacheMiss=0;
+      nNotResident=0;
+    }
+    this.hook484();
+    long bufferBytes=0;
+    int nLogBuffers=0;
+    this.hook483(bufferBytes,nLogBuffers);
+    stats.setNLogBuffers(nLogBuffers);
+    stats.setBufferBytes(bufferBytes);
+  }
+
+	
+   private void  hook483__wrappee__Statistics  (  long bufferBytes,  int nLogBuffers) throws DatabaseException {
+    Iterator iter=bufferPool.iterator();
+    while (iter.hasNext()) {
+      LogBuffer l=(LogBuffer)iter.next();
+      nLogBuffers++;
+      bufferBytes+=l.getCapacity();
+    }
+  }
+
+	
+  protected void hook483(  long bufferBytes,  int nLogBuffers) throws DatabaseException {
+    try {
+      hook483__wrappee__Statistics(bufferBytes,nLogBuffers);
+    }
+  finally {
+      bufferPoolLatch.release();
+    }
+  }
+
+	
+   private void  hook484__wrappee__Statistics  () throws DatabaseException {
+  }
+
+	
+  protected void hook484() throws DatabaseException {
+    bufferPoolLatch.acquire();
+    hook484__wrappee__Statistics();
+  }
+
+	
+  private Latch bufferPoolLatch;
+
+
+}

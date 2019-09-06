@@ -1,0 +1,4 @@
+File,LOC,SLOC-P,SLOC-L,MVG,BLOC,C&SLOC,CLOC,CWORD,HCLOC,HCWORD
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\replication\ClientPublisher.java,171,123,98,12,42,1,6,64,3,40
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\replication\ServerConnection.java,131,93,73,4,33,2,5,73,3,40
+C:\Users\soo\Downloads\eclipse-java-mars-2-win32-x86_64\Prevayler\src\org\prevayler\implementation\replication\ServerListener.java,38,22,18,1,10,1,6,81,3,40

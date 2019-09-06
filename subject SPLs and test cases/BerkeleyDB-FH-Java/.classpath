@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/coloride_1.2.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/eclipse/plugins/org.evosuite.plugins.eclipse.deps_1.0.2.201512261016/lib/evosuite.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
