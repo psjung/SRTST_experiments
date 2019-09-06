@@ -1,0 +1,24 @@
+<Code Partition Table>
+**Space({Wiper_P3, Wiper_P4}) 1= [sh]
+**Space({Wiper_P2, Wiper_P4}) 1= [wh]
+**Space({Wiper_P3, Wiper_P1}) 1= [wl]
+**Space({Wiper_P2, Wiper_P1}) 1= [sl]
+**Space({Wiper_P3, Wiper_P2, Wiper_P1, Wiper_P4}) 3= [Wiper, WiperFamily, Sensor]
+
+--
+<TCs Partition Table>
+**TS({Wiper_P3, Wiper_P4}) 1= [evosuite-tests.Sensor_ESTest.test8()]
+**TS({Wiper_P2, Wiper_P4}) 9= [evosuite-tests.Wiper_ESTest.test15(), evosuite-tests.Wiper_ESTest.test17(), evosuite-tests.Wiper_ESTest.test16(), evosuite-tests.Wiper_ESTest.test19(), evosuite-tests.Wiper_ESTest.test18(), evosuite-tests.Wiper_ESTest.test20(), evosuite-tests.Wiper_ESTest.test23(), evosuite-tests.Wiper_ESTest.test21(), evosuite-tests.Wiper_ESTest.test22()]
+**TS({Wiper_P3, Wiper_P1}) 13= [evosuite-tests.WiperSystem_ESTest.test0(), evosuite-tests.Wiper_ESTest.test11(), evosuite-tests.WiperSystem_ESTest.test2(), evosuite-tests.Wiper_ESTest.test10(), evosuite-tests.Wiper_ESTest.test02(), evosuite-tests.Wiper_ESTest.test13(), evosuite-tests.Wiper_ESTest.test01(), evosuite-tests.Wiper_ESTest.test12(), evosuite-tests.Wiper_ESTest.test03(), evosuite-tests.Wiper_ESTest.test06(), evosuite-tests.Wiper_ESTest.test05(), evosuite-tests.Wiper_ESTest.test07(), evosuite-tests.Wiper_ESTest.test09()]
+**TS({Wiper_P3, Wiper_P2, Wiper_P1, Wiper_P4}) 19= [evosuite-tests.WiperSystem_ESTest.test1(), evosuite-tests.WiperSystem_ESTest.test6(), evosuite-tests.WiperSystem_ESTest.test3(), evosuite-tests.Wiper_ESTest.test00(), evosuite-tests.WiperSystem_ESTest.test5(), evosuite-tests.WiperSystem_ESTest.test4(), evosuite-tests.Wiper_ESTest.test04(), evosuite-tests.Sensor_ESTest.test7(), evosuite-tests.Sensor_ESTest.test10(), evosuite-tests.Sensor_ESTest.test6(), evosuite-tests.Wiper_ESTest.test14(), evosuite-tests.Sensor_ESTest.test9(), evosuite-tests.Wiper_ESTest.test08(), evosuite-tests.Sensor_ESTest.test3(), evosuite-tests.Sensor_ESTest.test2(), evosuite-tests.Sensor_ESTest.test5(), evosuite-tests.Sensor_ESTest.test4(), evosuite-tests.Sensor_ESTest.test1(), evosuite-tests.Sensor_ESTest.test0()]
+
+--
+<Impacted Class List>
+[SPL]
+
+--
+<Impacted Test Suite>
+
+--
+<Selection Result>0
+[]

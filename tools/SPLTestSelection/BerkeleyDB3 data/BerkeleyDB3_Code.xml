@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>P1</name>
+		<Code>base, IO, Derivative_IO_SynchronizedIO</Code>
+	</Product>
+	<Product>
+		<name>P2</name>
+		<Code>base, LoggingBase, LoggingConsoleHandler, LoggingDbLogHandler, DiskFullErro, CriticalEviction, MemoryBudget, Evictor, DeleteOp, INCompressor, CPTime, CPBytes, IO, Latches, LoggingSevere, LoggingInfo, LoggingConfig, LoggingFiner, Derivative_LoggingConsoleHandler_LoggingBase, Derivative_LoggingDbLogHandler_LoggingBase, Derivative_LoggingSevere_LoggingBase, Derivative_LoggingFiner_LoggingBase, Derivative_Evictor_CriticalEviction, Derivative_Evictor_MemoryBudget, Derivative_DeleteOp_MemoryBudget, Derivative_Latches_MemoryBudget, Derivative_LoggingInfo_MemoryBudget, Derivative_DeleteOp_Evictor, Derivative_INCompressor_Evictor, Derivative_Latches_Evictor, Derivative_INCompressor_DeleteOp, Derivative_Latches_DeleteOp, Derivative_Latches_INCompressor, Derivative_CPBytes_CPTime, Derivative_IO_SynchronizedIO, Derivative_Evictor_MemoryBudget_CriticalEviction, Derivative_INCompressor_Evictor_CriticalEviction</Code>
+	</Product>
+	<Product>
+		<name>P3</name>
+		<Code>base, LoggingBase, LoggingDbLogHandler, EnvironmentLocking, DiskFullErro, FileHandleCache, RenameOp, INCompressor, CPTime, CheckpointerDaemon, IO, Checksum, Latches, FSync, LoggingCleaner, LoggingSevere, LoggingInfo, LoggingFine, LoggingFiner, Derivative_LoggingDbLogHandler_LoggingBase, Derivative_LoggingCleaner_LoggingBase, Derivative_LoggingSevere_LoggingBase, Derivative_LoggingFine_LoggingBase, Derivative_LoggingFiner_LoggingBase, Derivative_LoggingSevere_EnvironmentLocking, Derivative_Latches_FileHandleCache, Derivative_Latches_RenameOp, Derivative_Latches_INCompressor, Derivative_LoggingFine_INCompressor, Derivative_IO_SynchronizedIO, Derivative_FSync_Latches</Code>
+	</Product>
+</SPL>

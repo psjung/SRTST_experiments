@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>MobileMedia_P1</name>
+		<Code>Media, Photo, includePhotoAlbum, includeSmsFeature, capturePhoto, Music, includeMMAPI, Video, includeVideo, captureVideo, simulatePlayVideo, includeSorting, includeFavorites, includeCopyPhoto, Derivatives, x_CopyPhotoOrSMS, x_PhotoAlbumOrMusic, x_MusicAndVideo, x_PhotoAlbumAndVideoOrMusic, x_CapturePhotoOrVideo, x_NotPrivacy, x_SMSOrCapturePhoto, x_Misc, x_MusicOrVideo, x_SMSOrCapturePhotoOrCaptureVideo, x_PhotoAlbumOrMusicOrVideo, x_CopyPhotoOrSMSOrCapturePhoto</Code>
+	</Product>
+	<Product>
+		<name>MobileMedia_P2</name>
+		<Code>Media, Music, includeMMAPI, Video, includeVideo, captureVideo, includeCopyPhoto, Derivatives, x_CopyPhotoOrSMS, x_PhotoAlbumOrMusic, x_NotPhotoAlbum, x_MusicAndVideo, x_CapturePhotoOrVideo, x_Misc, x_MusicOrVideo, x_SMSOrCapturePhotoOrCaptureVideo, x_PhotoAlbumOrMusicOrVideo, x_CopyPhotoOrSMSOrCapturePhoto, x_notSimulatePlayVideo, includePrivacy</Code>
+	</Product>
+	<Product>
+		<name>MobileMedia_P3</name>
+		<Code>Media, Photo, includePhotoAlbum, includeSmsFeature, includeSorting, Derivatives, x_CopyPhotoOrSMS, x_PhotoAlbumOrMusic, x_notMisc, x_NotMusic, x_NotPrivacy, x_SMSOrCapturePhoto, x_SMSOrCapturePhotoOrCaptureVideo, x_PhotoAlbumOrMusicOrVideo, x_CopyPhotoOrSMSOrCapturePhoto, x_notSimulatePlayVideo</Code>
+	</Product>
+	<Product>
+		<name>MobileMedia_P4</name>
+		<Code>Media, Photo, includePhotoAlbum, includeSmsFeature, capturePhoto, Music, includeMMAPI, includeSorting, includeFavorites, includeCopyPhoto, Derivatives, x_CopyPhotoOrSMS, x_PhotoAlbumOrMusic, x_PhotoAlbumAndVideoOrMusic, x_CapturePhotoOrVideo, x_SMSOrCapturePhoto, x_Misc, x_MusicOrVideo, x_SMSOrCapturePhotoOrCaptureVideo, x_PhotoAlbumOrMusicOrVideo, x_CopyPhotoOrSMSOrCapturePhoto, x_notSimulatePlayVideo, includePrivacy</Code>
+	</Product>
+</SPL>
+

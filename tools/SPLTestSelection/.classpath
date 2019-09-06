@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/SPLTestSelection/org.eclipse.jdt.core_3.5.2.v_981_R35x.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/SPLTestSelection/org.eclipse.core.resources_3.5.2.R35x_v20091203-1235.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/SPLTestSelection/org.eclipse.core.runtime-3.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/SPLTestSelection/org.eclipse.osgi_3.10.2.v20150203-1939.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/soo/Desktop/eclipse-java-mars-2-win32-x86_64/eclipse/plugins/org.evosuite.plugins.eclipse.deps_1.0.2.201512261016/lib/evosuite.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

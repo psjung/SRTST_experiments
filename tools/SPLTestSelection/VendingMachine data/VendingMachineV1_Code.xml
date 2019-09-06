@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>VendingMachine_P1</name>
+		<Code>VendingMachine, Beverages, Currency, RingTone, Coffee, Euro, Size</Code>
+	</Product>
+	<Product>
+		<name>VendingMachine_P2</name>
+		<Code>VendingMachine, Beverages, Currency, Tea, Cappuccino, Dollar</Code>
+	</Product>
+	<Product>
+		<name>VendingMachine_P3</name>
+		<Code>VendingMachine, Beverages, Currency, RingTone, Coffee, Cappuccino, Dollar</Code>
+	</Product>
+	<Product>
+		<name>VendingMachine_P4</name>
+		<Code>VendingMachine, Beverages, Currency, Coffee, Tea, Euro</Code>
+	</Product>
+</SPL>

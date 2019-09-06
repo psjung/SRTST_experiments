@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>MRR_P1</name>
+		<Code>SPL, MIDP, DMIDP20, DITUNES, DLOGGING, DTEST, DSMALLMEM, DJSR75, DTESTUI, derivatives, notDCLDCV11, someCompatibility, notDMIDP10, compatNot23, notDCOMPATIBILITY2, Compatibility, DCOMPATIBILITY1</Code>
+	</Product>
+	<Product>
+		<name>MRR_P2</name>
+		<Code>SPL, MIDP, DMIDP20, DTEST, DTESTUI, derivatives, notDITUNES, notDSMALLMEM, notDJSR75, notDLOGGING, someCompatibility, notDMIDP10, DCLDCV11, DJSR238, Compatibility, DCOMPATIBILITY1, DCOMPATIBILITY2, DCOMPATIBILITY3</Code>
+	</Product>
+	<Product>
+		<name>MRR_P3</name>
+		<Code>SPL, MIDP, DMIDP20, DITUNES, DLOGGING, DTEST, DSMALLMEM, DJSR75, DTESTUI, derivatives, someCompatibility, notDMIDP10, DCLDCV11, DJSR238, Compatibility, DCOMPATIBILITY1, DCOMPATIBILITY2, DCOMPATIBILITY3</Code>
+	</Product>
+	<Product>
+		<name>MRR_P4</name>
+		<Code>SPL, MIDP, DMIDP10, DLOGGING, DTEST, DJSR75, DTESTUI, derivatives, notDITUNES, notDSMALLMEM, notDMIPP20, notDCLDCV11, someCompatibility, notDCOMPATIBILITY1, Compatibility, DCOMPATIBILITY2</Code>
+	</Product>
+	<Product>
+		<name>MRR_P5</name>
+		<Code>SPL, MIDP, DMIDP10, DITUNES, DLOGGING, DTEST, DSMALLMEM, DTESTUI, derivatives, notDJSR75, notDMIPP20, notDCLDCV11, noCompatibility, compatNot23, notDCOMPATIBILITY2, notDCOMPATIBILITY1, DJSR238</Code>
+	</Product>
+</SPL>
+

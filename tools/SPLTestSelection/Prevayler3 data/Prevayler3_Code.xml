@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>Prevayler_P1</name>
+		<Code>SPL, PrevaylerSPL, Replication</Code>
+	</Product>
+	<Product>
+		<name>Prevayler_P2</name>
+		<Code>SPL, PrevaylerSPL, Replication, Monitor</Code>
+	</Product>
+	<Product>
+		<name>Prevayler_P3</name>
+		<Code>SPL, PrevaylerSPL, Monitor, Snapshot</Code>
+	</Product>
+</SPL>

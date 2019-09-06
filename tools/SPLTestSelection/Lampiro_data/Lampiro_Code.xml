@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SPL>
+	<Product>
+		<name>Lampiro_P1</name>
+		<Code>Project, Timing, Motorola, Screensaver, Send_debug1, UI, derivatives, x_notBXMPP, x_notCompression, x_notTLS, x_notGlider, x_not_Bludeno</Code>
+	</Product>
+	<Product>
+		<name>Lampiro_P2</name>
+		<Code>Project, Timing, Motorola, Screensaver, derivatives, x_notUI, x_notCompression, x_notGlider, TLS, BXMPP, not_plain_socket, Bludeno</Code>
+	</Product>
+	<Product>
+		<name>Lampiro_P3</name>
+		<Code>Project, Motorola, Send_debug1, derivatives, x_notTiming, x_notUI, x_notBXMPP, TLS, Compression, Glider, not_plain_socket, Bludeno</Code>
+	</Product>
+	<Product>
+		<name>Lampiro_P4</name>
+		<Code>Project, Motorola, Screensaver, Send_debug1, derivatives, x_notTiming, x_notUI, x_notBXMPP, x_notTLS, Compression, Glider, Bludeno</Code>
+	</Product>
+	<Product>
+		<name>Lampiro_P5</name>
+		<Code>Project, derivatives, x_notTiming, x_notUI, TLS, Compression, BXMPP, Glider, not_plain_socket, Bludeno</Code>
+	</Product>
+	<Product>
+		<name>Lampiro_P6</name>
+		<Code>Project, derivatives, x_notTiming, x_notUI, x_notBXMPP, x_notCompression, x_notTLS, x_notGlider, x_not_Bludeno</Code>
+	</Product>
+</SPL>
